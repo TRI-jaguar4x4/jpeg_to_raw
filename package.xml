@@ -1,0 +1,24 @@
+<package format="2">
+
+  <name>jpeg_to_raw</name>
+  <version>0.2.1</version>
+  <description>
+    Python ROS driver to convert jpeg data to raw data
+  </description>
+  <maintainer email="toffee.albina@tri.global">Toffee Albina</maintainer>
+  <maintainer email="ros-orphaned-packages@googlegroups.com">ROS Orphaned Package Maintainers</maintainer>
+  <author>Toffee Albina</author>
+  <license>BSD</license>
+
+  <build_depend>sensor_msgs</build_depend>
+  <build_depend>rclpy</build_depend>
+  
+  <exec_depend>sensor_msgs</exec_depend>
+  <exec_depend>rclpy</exec_depend>
+
+  <export>
+    <rosdoc config="rosdoc.yaml" />
+    <build_type>ament_python</build_type>
+  </export>
+
+</package>
