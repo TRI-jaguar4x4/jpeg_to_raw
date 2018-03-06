@@ -36,6 +36,7 @@ class jpeg_to_raw(Node):
                                      bytes(msg.data), "jpeg", "RGB", "")
         except Exception as e:
             print ("Exception loading PILImage.frombuffer: ", e)
+            return
 
         self.rawmsg = Image()
         self.rawmsg.header = msg.header
