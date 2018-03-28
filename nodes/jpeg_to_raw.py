@@ -1,3 +1,5 @@
+# Copyright 2018 Toyota Research Institute.  All rights reserved.
+#
 # jpeg to raw decoder
 #    subscribe to /image_raw/compressed and /camera_info
 #    convert to raw
@@ -53,6 +55,6 @@ def main():
     rclpy.spin(jpeg2raw)
     jpeg2raw.destroy_node()
     rclpy.shutdown()
-    
+
 if __name__ == "__main__":
     main()
