@@ -13,6 +13,7 @@ from PIL import Image as PILImage
 
 import rclpy
 from rclpy.node import Node
+from rclpy.qos import qos_profile_sensor_data
 
 from sensor_msgs.msg import Image, CompressedImage, CameraInfo
 
@@ -20,8 +21,8 @@ class jpeg_to_raw(Node):
     def __init__(self):
         super().__init__('jpeg_to_raw')
 
-        self.camInfoSub = self.create_subscription(CameraInfo, "camera_info", self.camInfoCallback)
-        self.compressedSub = self.create_subscription(CompressedImage, "image_raw/compressed", self.compressedCallback)
+        self.camInfoSub = self.create_subscription(CameraInfo, "camera_info", self.camInfoCallback, qos_profile=qos_profile_sensor_data)
+        self.compressedSub = self.create_subscription(CompressedImage, "image_raw/compressed", self.compressedCallback, qos_profile=qos_profile_sensor_data)
         self.camInfo = None
         self.rawPublisher_ = self.create_publisher(Image, 'image')
 
