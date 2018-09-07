@@ -49,6 +49,8 @@ class jpeg_to_raw(Node):
             im = PILImage.frombuffer("RGB",
                                      (self.camInfo.width,self.camInfo.height),
                                      bytes(msg.data), "jpeg", "RGB", "")
+            b, g, r = im.split()
+            im = PILImage.merge("RGB", (r, g, b))
         except Exception as e:
             print ("Exception loading PILImage.frombuffer: ", e)
             return
@@ -57,7 +59,7 @@ class jpeg_to_raw(Node):
         self.rawmsg.header = msg.header
         self.rawmsg.width = self.camInfo.width
         self.rawmsg.height = self.camInfo.height
-        self.rawmsg.encoding = "rgb8"
+        self.rawmsg.encoding = "bgr8"
         self.rawmsg.data = im.tobytes()
         self.rawmsg.step = int(len(self.rawmsg.data)/self.rawmsg.height)
         self.rawPublisher_.publish(self.rawmsg)

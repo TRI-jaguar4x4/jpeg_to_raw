@@ -14,6 +14,7 @@ setup(
         ('share/' + package_name, ['package.xml']),
     ],
     install_requires=['setuptools'],
+    zip_safe=True,
     author='Toffee Albina',
     author_email='toffee.albina@tri.global',
     maintainer='Toffee Albina',
