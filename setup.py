@@ -7,7 +7,7 @@ setup(
     version='0.2.1',
     packages=[],
     py_modules=[
-        'nodes.jpeg_to_raw'],
+        'jpeg_to_raw.jpeg_to_raw'],
     data_files=[
         ('share/ament_index/resource_index/packages',
             ['resource/' + package_name]),
@@ -31,7 +31,7 @@ setup(
     tests_require=['pytest'],
     entry_points={
         'console_scripts': [
-            'jpeg_to_raw = nodes.jpeg_to_raw:main',
+            'jpeg_to_raw = jpeg_to_raw.jpeg_to_raw:main',
         ],
     },
 )
